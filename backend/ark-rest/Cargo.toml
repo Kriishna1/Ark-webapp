@@ -1,0 +1,22 @@
+[package]
+name = "ark-rest"
+version = "0.5.9"
+edition = "2021"
+license = "MIT"
+description = "REST client for Ark server communication"
+
+[dependencies]
+ark-core = { path = "../ark-core", version = "0.5.9" }
+bitcoin = { version = "0.32", default-features = false }
+reqwest = { version = "^0.12", features = ["json", "multipart"] }
+serde = { version = "^1.0", features = ["derive"] }
+serde_json = "^1.0"
+serde_repr = "^0.1"
+url = "^2.5"
+uuid = { version = "^1.8", default-features = false, features = ["serde", "v4", "js"] }
+
+[target.'cfg(all(target_arch = "wasm32", target_os = "unknown"))'.dependencies]
+getrandom = { version = "0.2", features = ["js"] }
+
+[dev-dependencies]
+tokio = { version = "1.41.0", features = ["macros", "rt"] }

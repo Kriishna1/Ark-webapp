@@ -1,0 +1,16 @@
+[package]
+name = "ark-rs"
+version = "0.5.9"
+edition = "2021"
+license = "MIT"
+description = "Collection of Rust crates designed to simplify building Bitcoin wallets with seamless support for both on-chain and off-chain transactions via the Ark protocol"
+
+[dependencies]
+ark-client = { path = "../ark-client", version = "0.5.9", optional = true }
+ark-core = { path = "../ark-core", version = "0.5.9" }
+ark-grpc = { path = "../ark-grpc", version = "0.5.9", optional = true }
+
+[features]
+default = []
+client = ["ark-client"]
+grpc = ["ark-grpc"]
